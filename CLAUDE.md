@@ -31,7 +31,7 @@ Standard Vite + React 19 + TypeScript, plain CSS — no router, no state managem
 
 - `index.html` → `src/main.tsx` (mounts `<App>` in `StrictMode`) → `src/App.tsx`.
 - **`src/App.tsx` is effectively the whole site.** It holds the page sections plus a few presentational sub-components (`HeroVisual`, `AppPreview`, `AppIcon`) in one file. Content (feature list, value bullets, preview steps) lives as plain arrays at the top of the file — this is intentional; do not extract it into separate data modules or split components unless the page genuinely outgrows one file.
-- **`src/App.css`** (~1100 lines) is a single global stylesheet driving all layout and the CSS-only visual effects (waveforms, orbits, phone mockup). It is mobile-first. The visuals are pure CSS — there are no image assets beyond the icon/photos in `public/`.
+- **`src/App.css`** (~1100 lines) is a single global stylesheet driving all layout and the CSS-only visual effects (waveforms, orbits, phone mockup). It is mobile-first. The look is an **intentional dark neon theme** (deep navy/black background, cyan/purple/pink gradients and glows, glassmorphism cards) — this is the agreed direction, so don't "correct" it toward a light/minimal Apple style. The decorative neon photos in `public/` are atmosphere only. Effects are static — there are no `@keyframes` animations, and that constraint should hold.
 - `public/` holds static assets served from `/` (e.g. `/flowist-icon.png`).
 
 ## Hard constraints — do not violate without explicit instruction
