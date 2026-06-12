@@ -23,6 +23,7 @@ const features = [
 
 const values = [
   "ユーザーがAIに話しかける前に、もう整理されている。",
+  "会議中のメモ取りを減らし、会話に集中できる。",
   "外部LLM APIを前提にしない設計。",
   "追加のAI利用料を抑えやすい。",
   "録音メモ、思考メモ、会議メモを次に使える形にする。",
@@ -39,8 +40,8 @@ function App() {
           <div className="hero-inner">
             <AppIcon className="hero-icon" />
             <p className="product-label">Flowist</p>
-            <h1 id="hero-title">録るだけで、使えるメモへ</h1>
-            <p className="hero-copy">話した内容を、使えるメモに整えます。</p>
+            <h1 id="hero-title">メモは任せて、会議に集中する。</h1>
+            <p className="hero-copy">記録はFlowistに。あとで手直しできる下書きを残します。</p>
             <div className="hero-actions" aria-label="Flowist status">
               <p className="status-pill">Closed Beta準備中</p>
               <p className="status-note">録音から要約まで、iPhoneで</p>
