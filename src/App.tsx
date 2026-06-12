@@ -1,32 +1,32 @@
 const features = [
   {
     title: "録音",
-    text: "iPhoneで思考や会話をそのまま残します。",
+    text: "声も会話も、そのまま残す",
   },
   {
     title: "日本語文字起こし",
-    text: "あとで読み返しやすい日本語テキストにします。",
+    text: "読み返せる日本語テキストに",
   },
   {
     title: "オンデバイスAI要約",
-    text: "長い録音の要点を、短く見渡せる形へ。",
+    text: "要点だけ、短く見渡せる",
   },
   {
     title: "タイトル自動生成",
-    text: "メモの内容がひと目でわかる名前を添えます。",
+    text: "ひと目でわかる名前を添える",
   },
   {
     title: "結果表示",
-    text: "録音、文字起こし、要約をひとつの流れで確認できます。",
+    text: "ひとつの流れで確認できる",
   },
 ];
 
 const values = [
-  "ユーザーがAIに話しかける前に、もう整理されている。",
-  "外部LLM APIを前提にしない設計。",
-  "追加のAI利用料を抑えやすい。",
-  "録音メモ、思考メモ、会議メモを次に使える形にする。",
-  "AIを意識しなくても、自然に情報が整う。",
+  "メモ取りを手放して、会話に集中",
+  "外部LLM APIを前提にしない設計",
+  "追加のAI利用料を抑えやすい",
+  "録音も思考も会議も、次に使える形に",
+  "AIを意識しなくても、自然に整う",
 ];
 
 const previewSteps = ["録音", "文字起こし", "要約", "タイトル生成"];
@@ -34,86 +34,51 @@ const previewSteps = ["録音", "文字起こし", "要約", "タイトル生成
 function App() {
   return (
     <main className="page">
+      <PageFlow />
+
       <section className="hero" aria-labelledby="hero-title">
-        <div className="hero-grid">
-          <div className="hero-inner">
-            <AppIcon className="hero-icon" />
-            <p className="product-label">Flowist</p>
-            <h1 id="hero-title">録るだけで、使えるメモへ</h1>
-            <p className="hero-copy">話した内容を、使えるメモに整えます。</p>
-            <div className="hero-actions" aria-label="Flowist status">
-              <p className="status-pill">Closed Beta準備中</p>
-              <p className="status-note">録音から要約まで、iPhoneで</p>
-            </div>
+        <div className="hero-inner">
+          <AppIcon className="hero-icon" />
+          <p className="product-label">Flowist</p>
+          <h1 id="hero-title">流れに、のせていく</h1>
+          <p className="hero-copy">声も、考えごとも、そのまま。あとは集中するだけ。</p>
+          <div className="hero-actions" aria-label="Flowist status">
+            <p className="status-pill">Closed Beta準備中</p>
           </div>
-          <HeroVisual />
         </div>
       </section>
 
       <section className="section flow-section" aria-labelledby="what-title">
         <div className="section-heading">
-          <p className="eyebrow">What Flowist does</p>
-          <h2 id="what-title">録音したあとを、次に使いやすく。</h2>
+          <h2 id="what-title">ひとつの流れになる</h2>
         </div>
-        <div className="flow-board">
-          <div className="flow-board-visual" aria-hidden="true">
-            <div className="photo-tile flow-photo" />
-            <div className="flow-wave">
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-            </div>
-            <div className="flow-note">
-              <span>Local AI</span>
-              <strong>声を、次に使う形へ。</strong>
-            </div>
-          </div>
-          <ol className="flow-steps">
-            {features.map((feature, index) => (
-              <li key={feature.title}>
-                <span className="flow-index">{String(index + 1).padStart(2, "0")}</span>
-                <div>
-                  <h3>{feature.title}</h3>
-                  <p>{feature.text}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
+        <ol className="flow-steps">
+          {features.map((feature, index) => (
+            <li key={feature.title} className="flow-step">
+              <span className="flow-node">{String(index + 1).padStart(2, "0")}</span>
+              <div className="flow-step-body">
+                <h3>{feature.title}</h3>
+                <p>{feature.text}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section className="section insight-section" aria-labelledby="why-title">
         <div className="section-heading">
-          <p className="eyebrow">Why it matters</p>
-          <h2 id="why-title">メモが、最初から少し整っている。</h2>
+          <h2 id="why-title">最初から、少し整っている</h2>
         </div>
-        <div className="insight-board">
-          <div className="insight-core">
-            <div className="insight-photo" aria-hidden="true" />
-            <span>Before prompt</span>
-            <strong>ユーザーがAIに話しかける前に、もう整理されている。</strong>
-            <div className="insight-beams" aria-hidden="true">
-              <i />
-              <i />
-              <i />
-            </div>
-          </div>
-          <ul className="value-list">
-            {values.slice(1).map((value) => (
-              <li key={value}>{value}</li>
-            ))}
-          </ul>
-        </div>
+        <ul className="value-list">
+          {values.map((value) => (
+            <li key={value}>{value}</li>
+          ))}
+        </ul>
       </section>
 
       <section className="section preview-section" aria-labelledby="preview-title">
         <div className="section-heading">
-          <p className="eyebrow">Preview</p>
-          <h2 id="preview-title">録音から整理までの流れ。</h2>
+          <h2 id="preview-title">録音から、整理まで</h2>
         </div>
         <AppPreview />
       </section>
@@ -129,40 +94,29 @@ function App() {
   );
 }
 
-function HeroVisual() {
+function PageFlow() {
+  const path =
+    "M50,0 C50,70 24,120 50,200 C73,272 28,322 51,410 C71,486 30,548 52,640 C70,716 33,772 50,860 C62,930 50,968 50,1000";
   return (
-    <div className="hero-visual" aria-label="Flowist visual concept">
-      <div className="visual-orbit" />
-      <div className="visual-core">
-        <div className="photo-tile visual-photo" />
-        <div className="visual-pulse" />
-      </div>
-      <div className="voice-ribbons" aria-hidden="true">
-        <span />
-        <span />
-        <span />
-      </div>
-      <div className="wave-lane" aria-hidden="true">
-        <i />
-        <i />
-        <i />
-        <i />
-        <i />
-        <i />
-        <i />
-        <i />
-      </div>
-      <div className="memory-card transcript-card">
-        <span>Transcript</span>
-        <p>次の打ち合わせで話す内容を、先に短く整理しておく。</p>
-      </div>
-      <div className="memory-card summary-card">
-        <span>Summary</span>
-        <p>確認したい点と次のアクション。</p>
-      </div>
-      <div className="record-button" aria-hidden="true">
-        <span />
-      </div>
+    <div className="page-flow" aria-hidden="true">
+      <svg
+        className="page-flow-svg"
+        viewBox="0 0 100 1000"
+        preserveAspectRatio="none"
+        fill="none"
+      >
+        <defs>
+          <linearGradient id="flowStroke" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#2de4ff" stopOpacity="0" />
+            <stop offset="0.08" stopColor="#2de4ff" stopOpacity="0.85" />
+            <stop offset="0.5" stopColor="#3f8fff" stopOpacity="0.7" />
+            <stop offset="1" stopColor="#3f8fff" stopOpacity="0.4" />
+          </linearGradient>
+        </defs>
+        <path className="flow-line flow-line-halo" d={path} vectorEffect="non-scaling-stroke" />
+        <path className="flow-line flow-line-core" d={path} vectorEffect="non-scaling-stroke" />
+        <path className="flow-line flow-line-spark" d={path} vectorEffect="non-scaling-stroke" />
+      </svg>
     </div>
   );
 }
@@ -175,8 +129,8 @@ function AppPreview() {
         <AppIcon className="preview-icon" />
         <div className="preview-header">
           <span>Flowist</span>
-          <strong>録るだけで、使えるメモへ</strong>
-          <p>話した内容を、使えるメモに整えます。</p>
+          <strong>流れに、のせていく</strong>
+          <p>記録はFlowistに。あとで手直しできる下書きを残します。</p>
         </div>
         <div className="screen-wave" aria-hidden="true">
           <span />
