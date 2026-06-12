@@ -176,8 +176,8 @@ function AppPreview() {
         <AppIcon className="preview-icon" />
         <div className="preview-header">
           <span>Flowist</span>
-          <strong>録るだけで、使えるメモへ</strong>
-          <p>話した内容を、使えるメモに整えます。</p>
+          <strong>メモは任せて、会議に集中する。</strong>
+          <p>記録はFlowistに。あとで手直しできる下書きを残します。</p>
         </div>
         <div className="screen-wave" aria-hidden="true">
           <span />
