@@ -10,6 +10,8 @@ The guiding principle, repeated across the project docs: keep it **simple, clear
 
 > ユーザーがAIに話しかける前に、もう整理されている。
 
+**Product positioning (important for copy):** Flowist is **not** an automatic, high-accuracy minutes generator. Its purpose is to reduce typing / handwritten note-taking *during* a meeting so participants can focus on the conversation, and afterwards to produce a **draft** that a human corrects and shares. Frame summaries as a starting point for people to fix — not as complete, fully-automated, or perfectly accurate output. The name "Flowist" expresses putting people into a flow state where it matters. See `AGENTS.md` → プロダクト思想 for the full statement.
+
 `AGENTS.md` and `docs/CODING_GUIDE.md` are the source of truth for scope and tone — read them before any substantial change. The notes below summarize the parts most likely to trip up an edit.
 
 ## Commands
@@ -48,6 +50,7 @@ All user-facing copy is in Japanese and must stay calm, simple, and non-salesy.
 - **Approved phrasings** include: 「ユーザーがAIに話しかける前に、もう整理されている。」 / 「iPhoneで録音した音声を、文字起こし・要約・タイトル生成まで行うローカルAIメモアプリ」 / 「外部LLM APIを前提にしない」 / 「Closed Beta準備中」.
 - **Avoid hype / absolute claims**: 「完全プライベート」「絶対安全」「完璧な要約」「すべて自動化」「あらゆる会議に対応」「仕事が爆速になる」.
 - For privacy, say 「外部LLM APIを前提にしない設計」. Do **not** claim 「一切外部送信しない」 unless the implementation and platform behavior are verifiably confirmed.
+- Reflect the refined positioning: present output as a human-correctable **下書き**, keep summaries **断定しすぎない** (non-assertive), and don't promise complete/auto-generated minutes. Cautions before use and a confirm-before-share step are in keeping with the product stance — not over-promising.
 
 ## Before finishing
 
