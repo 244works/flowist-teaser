@@ -31,7 +31,7 @@ Standard Vite + React 19 + TypeScript, plain CSS — no router, no state managem
 
 - `index.html` → `src/main.tsx` (mounts `<App>` in `StrictMode`) → `src/App.tsx`.
 - **`src/App.tsx` is effectively the whole site.** It holds the page sections plus a few presentational sub-components (`HeroVisual`, `AppPreview`, `AppIcon`) in one file. Content (feature list, value bullets, preview steps) lives as plain arrays at the top of the file — this is intentional; do not extract it into separate data modules or split components unless the page genuinely outgrows one file.
-- **`src/App.css`** (~1100 lines) is a single global stylesheet driving all layout and the CSS-only visual effects (waveforms, orbits, phone mockup). It is mobile-first. The look is an **intentional dark neon theme** (deep navy/black background, cyan/purple/pink gradients and glows, glassmorphism cards) — this is the agreed direction, so don't "correct" it toward a light/minimal Apple style. The decorative neon photos in `public/` are atmosphere only. Effects are static — there are no `@keyframes` animations, and that constraint should hold.
+- **`src/App.css`** (~1100 lines) is a single global stylesheet driving all layout and the CSS-only visual effects (waveforms, orbits, phone mockup). It is mobile-first. The look is an **intentional dark neon theme** (deep navy/black background, cyan/purple/pink gradients and glows, glassmorphism cards) — this is the agreed direction, so don't "correct" it toward a light/minimal Apple style. The decorative neon photos in `public/` are atmosphere only. Subtle CSS animations are intentionally part of the look — a light traveling along the central flow line (`@keyframes spine-travel`) and an IntersectionObserver-driven scroll-reveal on sections/items. Keep motion subtle and cheap, and always provide a `prefers-reduced-motion` fallback; avoid heavy or distracting animation.
 - `public/` holds static assets served from `/` (e.g. `/flowist-icon.png`).
 
 ## Hard constraints — do not violate without explicit instruction
@@ -40,7 +40,7 @@ These come straight from `AGENTS.md`:
 
 - **No new dependencies** without a clear reason. Specifically do **not** add: Next.js, Tailwind, Framer Motion, UI component libraries, CMS, analytics, auth, backend / API routes, contact forms, or waitlist features.
 - **No backend.** This stays a static, single-page site deployable to Vercel as a plain Vite project (Framework Preset `Vite`, build `npm run build`, output `dist`).
-- Keep it **one page**. No complex routing, no heavy animations, no stock photography.
+- Keep it **one page**. No complex routing, no stock photography. Subtle CSS animations are fine (and intended); keep them light and respect `prefers-reduced-motion` — just avoid heavy/distracting motion.
 - Split a component or file **only when actually needed**; favor readability over abstraction. Let TypeScript inference do its job rather than over-annotating.
 
 ## Copy & tone (Japanese)
